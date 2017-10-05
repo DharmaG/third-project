@@ -1,0 +1,29 @@
+
+
+h1 {
+  font-family: 'Petit Formal Script', cursive;
+  text-align: center;
+    /*padding: 30%;*/
+  margin: 0;
+}
+ .homeTitle {
+   padding: 13%;
+ }
+.homeLinks {
+  text-align: center;
+}
+a {
+  background-color: transparent;
+  border: none;
+}
+a:hover {
+  background-color: white;
+  border-radius: 0px;
+  height: 80px;
+}
+
+.background {
+  background-image: url(../../photos/solidcream.png);
+  /*background-size: 100%;*/
+  height: 100%;
+}

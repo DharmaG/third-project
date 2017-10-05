@@ -1,0 +1,36 @@
+<div *ngIf="userInfo">
+  <p> Hello, {{ userInfo.fullName }}. </p>
+
+</div>
+
+<div class="todo-list">
+  <ul>
+    <li *ngFor="let oneTodo of todos">
+      <h3> <input type="checkbox" /> {{ oneTodo.todo }}  </h3>
+
+
+    </li>
+    <div>
+      <button (click)="subscribeTimer0()">Start/Pause</button>
+      {{counter0}}
+    </div>
+  </ul>
+
+</div>
+
+
+
+<div class="todoInput">
+  <form (ngSubmit)="saveNewTodo()">
+    <label for="todo-input"> To-do's </label>
+    <input  id="todo-input" type="text"  name="todoName"
+              [(ngModel)]="newTodo.todo" />
+
+<button> Save Todo </button>
+
+
+  </form>
+
+
+
+</div>
