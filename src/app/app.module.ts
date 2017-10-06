@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SimpleTimer } from 'ng2-simple-timer';
+import { DatePipe } from '@angular/common';
+
 
 import { HttpClientModule } from '@angular/common/http';
 import { AuthApiService } from './services/auth-api.service';
@@ -13,6 +15,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import { TodoInputComponent } from './pages/todo-input/todo-input.component';
 import { HomeComponent } from './pages/home/home.component';
+
 
 
 @NgModule({
@@ -33,7 +36,8 @@ import { HomeComponent } from './pages/home/home.component';
   providers: [
     AuthApiService,
     TodoApiService,
-    SimpleTimer
+    SimpleTimer,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

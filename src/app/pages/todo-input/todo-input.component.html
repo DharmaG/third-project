@@ -3,28 +3,29 @@
 
 </div>
 
-<div class="todo-list">
-  <ul>
-    <li *ngFor="let oneTodo of todos">
-      <h3> <input type="checkbox" /> {{ oneTodo.todo }}  </h3>
-
-
+<div class="todo-list" >
+  <ul class="check-list" >
+    <li *ngFor="let oneTodo of todos" >
+      <h3 > <input type="checkbox" id = "cow {{oneTodo._id}}"  (click)="checkboxChange(oneTodo)" /> {{ oneTodo.todo }}  </h3>
     </li>
     <div>
       <button (click)="subscribeTimer0()">Start/Pause</button>
-      {{counter0}}
+      {{hoursCounter}}:{{minuteCounter}}:{{counter0}}
+
     </div>
   </ul>
 
 </div>
 
+<p> {{ today | date: 'fullDate' }} </p>
 
+<p> {{ today | date: 'h:mma' }} </p>
 
 <div class="todoInput">
   <form (ngSubmit)="saveNewTodo()">
     <label for="todo-input"> To-do's </label>
     <input  id="todo-input" type="text"  name="todoName"
-              [(ngModel)]="newTodo.todo" />
+            [(ngModel)]="newTodo.todo" />
 
 <button> Save Todo </button>
 
@@ -34,3 +35,7 @@
 
 
 </div>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>

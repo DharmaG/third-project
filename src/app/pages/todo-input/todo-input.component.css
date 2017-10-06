@@ -10,3 +10,7 @@ li {
   background-color: cream;
 
 }
+
+.check {
+  text-decoration: line-through;
+}
