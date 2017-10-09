@@ -1,10 +1,22 @@
+.userInfo {
+  display: inline-block;
+margin: 12% 21%;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
 li {
   list-style: none;
 }
 
 .todo-list {
+  margin-top: 9%;
+  margin-bottom: 6%;
   float: right;
   border: 2px solid black;
+  border-radius: 15px;
   margin-right: 10%;
   padding: 10px;
   background-color: cream;
@@ -13,4 +25,32 @@ li {
 
 .check {
   text-decoration: line-through;
+}
+
+#todo-input {
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+.add {
+  border-radius: 80px;
+  background-color: transparent;
+  border-color: black;
+}
+
+.delete {
+  font-size: 15px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50px;
+  /*padding: 10px;*/
+}
+
+.pause {
+margin-left: 20%;
+}
+
+.calendar {
+  margin: 0% 5%;
+
 }

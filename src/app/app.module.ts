@@ -5,6 +5,7 @@ import { SimpleTimer } from 'ng2-simple-timer';
 import { DatePipe, CommonModule } from '@angular/common';
 import { CalendarModule } from 'angular-calendar';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { HttpClientModule } from '@angular/common/http';
@@ -39,7 +40,8 @@ import { CalendarComponent } from './pages/calendar/calendar.component';
     FormsModule,
     CommonModule,
     CalendarModule.forRoot(),
-    NgbModalModule.forRoot()
+    NgbModalModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
     AuthApiService,

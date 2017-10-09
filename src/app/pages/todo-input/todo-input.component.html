@@ -1,48 +1,53 @@
-<div *ngIf="userInfo">
-  <p> Hello, {{ userInfo.fullName }}. </p>
+<div *ngIf="userInfo" >
+
+<div class="userInfo">
+  <h1> Hello, {{ userInfo.fullName }}! </h1>
+
+  <div class="todoInput">
+    <form (ngSubmit)="saveNewTodo()">
+      <label for="todo-input"> To-do's </label>
+      <br>
+      <input  id="todo-input" type="text"  name="todoName"
+      [(ngModel)]="newTodo.todo" />
+
+      <button class="glyphicon glyphicon-plus add"> </button>
+
+    </form>
+
+  </div>
 
 </div>
 
 <div class="todo-list" >
+  <p> {{ today | date: 'fullDate' }} </p>
+
+  <p> {{ today | date: 'h:mma' }} </p>
+
+  
   <ul class="check-list" >
-    <li *ngFor="let oneTodo of todos" >
-      <h3 > <input type="checkbox" id = "cow {{oneTodo._id}}"  (click)="checkboxChange(oneTodo)" />
+    <li *ngFor="let oneTodo of todos" [ngClass]="{ done: oneTodo.isChecked }">
+      <h3 > <input type="checkbox"  (click)="checkboxChange(oneTodo)" />
          {{ oneTodo.todo }}
-         <button (click)="deleteClick()">
-           Delete
+         <button class="glyphicon glyphicon-trash delete"(click)="deleteClick(oneTodo)">
          </button>
       </h3>
     </li>
     <div>
-      <button (click)="subscribeTimer0()">Start/Pause</button>
+      <button (click)="subscribeTimer0()" class="glyphicon glyphicon-pause pause"></button>
       {{hoursCounter}}:{{minuteCounter}}:{{counter0}}
 
     </div>
   </ul>
 
 </div>
-
-<p> {{ today | date: 'fullDate' }} </p>
-
-<p> {{ today | date: 'h:mma' }} </p>
-
-<div class="todoInput">
-  <form (ngSubmit)="saveNewTodo()">
-    <label for="todo-input"> To-do's </label>
-    <input  id="todo-input" type="text"  name="todoName"
-            [(ngModel)]="newTodo.todo" />
-
-<button> Save Todo </button>
+<br><br><br><br><br>
 
 
-  </form>
-
+<div class="calendar">
   <app-calendar></app-calendar>
+
+</div>
 
 
 
 </div>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>

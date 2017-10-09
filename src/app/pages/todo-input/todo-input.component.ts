@@ -21,7 +21,6 @@ export class TodoInputComponent implements OnInit {
   todos: any[] = [];
 
   userInfo: any;
-  todoInfo: any = {};
   today: any;
 
   newTodo: any = {};
@@ -49,7 +48,9 @@ export class TodoInputComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.today = this.date.transform(Date.now());
+    this.today = Date.now();
+
+
     this.timer.newTimer('1sec', 1);
     this.subscribeTimer0();
 
@@ -125,16 +126,37 @@ saveNewTodo() {
   )
 }
 
-deleteClick() {
+deleteClick(deleteTask) {
   // call the API for deletion
-  console.log(this.todoInfo);
-  this.todo.deletePhone(this.todoInfo)
+  this.todo.deletePhone(deleteTask._id)
     .subscribe(
-      (todosFromApi) => {
-        this.todoInfo = todosFromApi
-          this.router.navigate(['']);
+      () => {
+        // remove from array
+
+        this.todos.forEach((oneTask) => {
+          //loop through todos aray and check for deleted Task
+          if(oneTask._id === deleteTask._id) {
+            // if the delTask's id is equal to one of the tasks in the array
+            //remove it from the array
+            //The index of what needs to be removed
+            let theIndexOfWhatNeedsToBeGone = this.todos.indexOf(oneTask);
+            //Splice using the index + 1 pos forward
+            this.todos.splice(theIndexOfWhatNeedsToBeGone,1);
+            console.log(this.todos)
+
+          }
+        });
+         this.todos.indexOf(deleteTask._id);
+         if (deleteTask._id != deleteTask._id){
+           this.todos.splice(deleteTask._id);
+           return;
+         }
+         this.router.navigate(['todos']);
       }
     );
+    console.log(this.todos);
+    //remove it from the toDoList array in the frontend
+
   }
 
     startTimer() {
@@ -154,6 +176,18 @@ deleteClick() {
 
     pad(digit: any) {
       return digit <= 9 ? '0' + digit : digit;
+    }
+
+
+
+    checkboxChange(todo) {
+      if (todo.isChecked) {
+        todo.isChecked= false;
+      }
+      else {
+        todo.isChecked = true;
+      }
+
     }
 
 
