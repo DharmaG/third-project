@@ -18,6 +18,9 @@ const routes: Routes = [
   },
   {
     path:'todos', component: TodoInputComponent
+  },
+  {
+    path:'todos/:todoId', component: TodoInputComponent
   }
 ];
 

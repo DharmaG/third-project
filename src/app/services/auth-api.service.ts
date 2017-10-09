@@ -70,18 +70,18 @@ export class AuthApiService {
         ); // return (
     } // loginRequest()
 
-    // DELETE /api/logout
-    logOut() {
-        return (
-          this.http.delete(
-              this.baseUrl + '/api/logout',
-              { withCredentials: true }
-          ) // need "withCredentials" for APIs that use the session
-          .do(() => {
-              this.loginStatusSubject.next({ isLoggedIn: false })
-          })
-        ); // return (
-    } // logOut()
+    //DELETE /api/logMeOut
+    logOut(){
+      const logoutRequest =
+       this.http.delete(
+        this.baseUrl + '/api/logout',
+        { withCredentials: true }
+      );
+      logoutRequest.subscribe(() => {
+        this.loginStatusSubject.next({ isLoggedIn: false })
+      });
+      return logoutRequest;
+    }
 
 
 }

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
 import { DatePipe } from '@angular/common';
 import { Observable, Subscription } from 'rxjs/Rx';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 
@@ -20,6 +21,7 @@ export class TodoInputComponent implements OnInit {
   todos: any[] = [];
 
   userInfo: any;
+  todoInfo: any = {};
   today: any;
 
   newTodo: any = {};
@@ -41,7 +43,8 @@ export class TodoInputComponent implements OnInit {
     private todo: TodoApiService,
     private auth: AuthApiService,
     private timer: SimpleTimer,
-    private date: DatePipe
+    private date: DatePipe,
+    private router: Router
 
   ) { }
 
@@ -58,6 +61,7 @@ export class TodoInputComponent implements OnInit {
       }
     );
 
+
     this.auth.getLoginStatus()
     .subscribe(
       (loggedInInfo: any) => {
@@ -66,6 +70,7 @@ export class TodoInputComponent implements OnInit {
         }
       }
     );
+
 
   } //  closing  ngOnInit() {
     //
@@ -119,6 +124,18 @@ saveNewTodo() {
     }
   )
 }
+
+deleteClick() {
+  // call the API for deletion
+  console.log(this.todoInfo);
+  this.todo.deletePhone(this.todoInfo)
+    .subscribe(
+      (todosFromApi) => {
+        this.todoInfo = todosFromApi
+          this.router.navigate(['']);
+      }
+    );
+  }
 
     startTimer() {
     }
