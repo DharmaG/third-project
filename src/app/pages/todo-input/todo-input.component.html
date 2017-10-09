@@ -1,16 +1,19 @@
 <div *ngIf="userInfo" >
 
-<div class="userInfo">
+<div class="userInfo" >
+
   <h1> Hello, {{ userInfo.fullName }}! </h1>
 
   <div class="todoInput">
     <form (ngSubmit)="saveNewTodo()">
-      <label for="todo-input"> To-do's </label>
-      <br>
+      <label for="todo-input"> What is your plan today ? </label>
+      <br><br>
       <input  id="todo-input" type="text"  name="todoName"
-      [(ngModel)]="newTodo.todo" />
+      [(ngModel)]="newTodo.todo"  />
 
-      <button class="glyphicon glyphicon-plus add"> </button>
+      <button class="glyphicon glyphicon-plus add" > </button>
+
+
 
     </form>
 
@@ -23,7 +26,7 @@
 
   <p> {{ today | date: 'h:mma' }} </p>
 
-  
+
   <ul class="check-list" >
     <li *ngFor="let oneTodo of todos" [ngClass]="{ done: oneTodo.isChecked }">
       <h3 > <input type="checkbox"  (click)="checkboxChange(oneTodo)" />

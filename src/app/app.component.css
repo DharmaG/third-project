@@ -1,4 +1,10 @@
 
 .logout{
   float: right;
+  font-size: 40px;
+  background-color: transparent;
+  border: none;
+  margin-right: 5%;
+  margin-top: 2%;
+
 }

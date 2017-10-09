@@ -33,12 +33,12 @@ export class TodoApiService {
   }
 
   // DELETE /api/phones/ID
-deletePhone(todoId: string) {
-  return this.http.delete(
-    this.baseUrl + '/api/todos/' + todoId,
-    { withCredentials: true }
-  );
-}
+  deletePhone(todoId: string) {
+    return this.http.delete(
+      this.baseUrl + '/api/todos/' + todoId,
+      { withCredentials: true }
+    );
+  }
 
 
 }

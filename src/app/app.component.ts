@@ -41,7 +41,7 @@ export class AppComponent {
   this.auth.logOut()
   .subscribe(
     (apiResponse) => {
-      this.router.navigate(['/login'])
+      this.router.navigate([''])
     }
   );
 

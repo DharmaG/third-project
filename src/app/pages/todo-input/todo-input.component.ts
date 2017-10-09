@@ -4,6 +4,7 @@ import { SimpleTimer } from 'ng2-simple-timer';
 import { DatePipe } from '@angular/common';
 import { Observable, Subscription } from 'rxjs/Rx';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CalendarComponent } from '../../pages/calendar/calendar.component';
 
 
 
@@ -74,7 +75,6 @@ export class TodoInputComponent implements OnInit {
 
 
   } //  closing  ngOnInit() {
-    //
 
 
     delAllTimer() {
@@ -123,7 +123,7 @@ saveNewTodo() {
       // this.newTodo = {};
       this.todos.push(todo);
     }
-  )
+  );
 }
 
 deleteClick(deleteTask) {

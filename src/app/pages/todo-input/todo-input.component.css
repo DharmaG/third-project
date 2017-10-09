@@ -1,7 +1,8 @@
 .userInfo {
-  display: inline-block;
-margin: 12% 21%;
+display: inline-block;
+margin: 12% 14%;
 }
+
 
 .done {
   text-decoration: line-through;
@@ -12,12 +13,11 @@ li {
 }
 
 .todo-list {
-  margin-top: 9%;
+  margin-top: 10%;
   margin-bottom: 6%;
   float: right;
   border: 2px solid black;
   border-radius: 15px;
-  margin-right: 10%;
   padding: 10px;
   background-color: cream;
 
@@ -30,12 +30,19 @@ li {
 #todo-input {
   border: none;
   border-bottom: 2px solid black;
+  width: 150%;
+}
+
+.name-label {
+  margin-left: 10%;
 }
 
 .add {
   border-radius: 80px;
   background-color: transparent;
   border-color: black;
+  top: -21px;
+  left: 158%;
 }
 
 .delete {

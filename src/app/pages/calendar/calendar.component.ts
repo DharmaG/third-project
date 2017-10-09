@@ -25,6 +25,9 @@ import {
   CalendarEventTimesChangedEvent
 } from 'angular-calendar';
 
+import { TodoInputComponent } from '../../pages/todo-input/todo-input.component';
+import { TodoApiService } from '../../services/todo-api.service';
+
 const colors: any = {
   red: {
     primary: '#ad2121',
@@ -81,19 +84,22 @@ export class CalendarComponent implements OnInit {
       end: addDays(new Date(), 1),
       title: 'A 3 day event',
       color: colors.red,
-      actions: this.actions
+      actions: this.actions,
+      draggable: true
     },
     {
       start: startOfDay(new Date()),
       title: 'An event with no end date',
       color: colors.yellow,
-      actions: this.actions
+      actions: this.actions,
+      draggable: true
     },
     {
       start: subDays(endOfMonth(new Date()), 3),
       end: addDays(endOfMonth(new Date()), 3),
       title: 'A long event that spans 2 months',
-      color: colors.blue
+      color: colors.blue,
+      draggable: true
     },
     {
       start: addHours(startOfDay(new Date()), 2),
@@ -111,7 +117,10 @@ export class CalendarComponent implements OnInit {
 
   activeDayIsOpen: boolean = true;
 
-  constructor(private modal: NgbModal) {}
+  constructor(
+    private modal: NgbModal,
+    private todo: TodoApiService
+  ) {}
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -143,7 +152,7 @@ export class CalendarComponent implements OnInit {
     this.modal.open(this.modalContent, { size: 'lg' });
   }
 
-  addEvent(): void {
+  addEvent(newTodo): void {
     this.events.push({
       title: 'New event',
       start: startOfDay(new Date()),
@@ -160,6 +169,14 @@ export class CalendarComponent implements OnInit {
 
 
   ngOnInit() {
+
+    // todosFromApi.forEach((oneTodo) => {
+    //   event = {
+    //     title: this.todos
+    //   }
+    //   this.events.push(event)
+    // });
+
   }
 
 }
