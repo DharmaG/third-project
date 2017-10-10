@@ -1,1 +1,12 @@
 
+.authetication {
+  border: 2px solid white;
+  border-radius: 50px;
+  width: 40%;
+  padding: 10%;
+  display: inline-block;
+}
+
+input {
+  border-radius: 50px;
+}

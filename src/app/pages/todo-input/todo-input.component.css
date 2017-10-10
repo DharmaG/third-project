@@ -3,6 +3,10 @@ display: inline-block;
 margin: 12% 14%;
 }
 
+h1 {
+  font-size: 45px;
+}
+
 
 .done {
   text-decoration: line-through;

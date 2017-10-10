@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
     this.auth.postSignup(this.newUser)
     .subscribe(
       (userInfo) => {
-        this.router.navigate(['']);
+        this.router.navigate(['todos']);
       },
 
       (errInfo) => {

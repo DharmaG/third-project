@@ -1,16 +1,19 @@
-<h2> Log In </h2>
+<div class="authentication">
+  <h2> Log In </h2>
 
-<p class="error" *ngIf="loginError"> {{ loginError }}  </p>
+  <p class="error" *ngIf="loginError"> {{ loginError }}  </p>
 
-<form (ngSubmit)="loginSubmit()">
-  <label for="log-username-input"> Username </label>
-  <input  id="log-username-input" type="text" placeholder="wonderwoman"
-  name="username" [(ngModel)]="loginUser.loginUsername">
-  <br>
+  <form (ngSubmit)="loginSubmit()">
+    <label for="log-username-input"> Username </label>
+    <input  id="log-username-input" type="text" placeholder="Milan"
+    name="username" [(ngModel)]="loginUser.loginUsername">
+    <br>
 
-  <label for="log-password-input"> Password </label>
-  <input  id="log-password-input" type="password" placeholder="*********"
-  name="userPassword" [(ngModel)]="loginUser.loginPassword">
-  <br>
-  <button> Log In </button>
-</form>
+    <label for="log-password-input"> Password </label>
+    <input  id="log-password-input" type="password" placeholder="*********"
+    name="userPassword" [(ngModel)]="loginUser.loginPassword">
+    <br>
+    <button> Log In </button>
+  </form>
+
+</div>

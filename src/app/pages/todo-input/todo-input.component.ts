@@ -49,6 +49,10 @@ export class TodoInputComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // setInterval(function() {
+    //     alert('Times Up')
+    // }, 20000);
+
     this.today = Date.now();
 
 
@@ -76,7 +80,6 @@ export class TodoInputComponent implements OnInit {
 
 
   } //  closing  ngOnInit() {
-
 
 
     delAllTimer() {
