@@ -27,6 +27,8 @@ import {
 
 import { TodoInputComponent } from '../../pages/todo-input/todo-input.component';
 import { TodoApiService } from '../../services/todo-api.service';
+import { HttpClient } from '@angular/common/http';
+// import { CalendarService } from '../../services/calendar.service';
 
 const colors: any = {
   red: {
@@ -46,7 +48,8 @@ const colors: any = {
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css']
+  styleUrls: ['./calendar.component.css'],
+  // providers: [CalendarService]
 })
 export class CalendarComponent implements OnInit {
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
@@ -117,9 +120,11 @@ export class CalendarComponent implements OnInit {
 
   activeDayIsOpen: boolean = true;
 
+
   constructor(
     private modal: NgbModal,
-    private todo: TodoApiService
+    private todo: TodoApiService,
+    private http: HttpClient
   ) {}
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
@@ -152,30 +157,37 @@ export class CalendarComponent implements OnInit {
     this.modal.open(this.modalContent, { size: 'lg' });
   }
 
-  addEvent(newTodo): void {
-    this.events.push({
-      title: 'New event',
-      start: startOfDay(new Date()),
-      end: endOfDay(new Date()),
-      color: colors.red,
-      draggable: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
+
+  addTodo() {
+    this.todo.getTodos()
+    .subscribe(
+      (todosFromApi: any[]) => {
+        // this.events = [];
+        // take todosFromApi
+        todosFromApi.forEach((oneTodo) => {
+          // call addEvent function with todosApi inside
+          this.events.push({
+            title: oneTodo.todo,
+            start: startOfDay(new Date()),
+            end: endOfDay(new Date()),
+            color: colors.red,
+            draggable: true,
+            resizable: {
+              beforeStart: true,
+              afterEnd: true
+            }
+          });
+        })
+        this.refresh.next();
       }
-    });
-    this.refresh.next();
+    );
   }
 
 
   ngOnInit() {
 
-    // todosFromApi.forEach((oneTodo) => {
-    //   event = {
-    //     title: this.todos
-    //   }
-    //   this.events.push(event)
-    // });
+    this.addTodo();
+
 
   }
 

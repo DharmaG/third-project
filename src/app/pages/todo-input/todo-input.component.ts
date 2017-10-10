@@ -52,6 +52,7 @@ export class TodoInputComponent implements OnInit {
     this.today = Date.now();
 
 
+
     this.timer.newTimer('1sec', 1);
     this.subscribeTimer0();
 
@@ -75,6 +76,7 @@ export class TodoInputComponent implements OnInit {
 
 
   } //  closing  ngOnInit() {
+
 
 
     delAllTimer() {

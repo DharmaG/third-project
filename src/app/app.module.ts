@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthApiService } from './services/auth-api.service';
 import { TodoApiService } from './services/todo-api.service';
+// import { CalendarService } from './services/calendar.service';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,7 +49,7 @@ import { CalendarComponent } from './pages/calendar/calendar.component';
     AuthApiService,
     TodoApiService,
     SimpleTimer,
-    DatePipe
+    DatePipe,
   ],
   bootstrap: [AppComponent]
 })
