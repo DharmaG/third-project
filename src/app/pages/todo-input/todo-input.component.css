@@ -1,10 +1,15 @@
 .userInfo {
 display: inline-block;
-margin: 12% 14%;
+margin: 12% 10%;
 }
+
 
 h1 {
   font-size: 45px;
+}
+
+h3 {
+  margin-top: 8%;
 }
 
 
@@ -14,6 +19,19 @@ h1 {
 
 li {
   list-style: none;
+}
+
+.today {
+  display: inline-block;
+  float: left;
+}
+
+.todayTime {
+  float: right;
+}
+
+.check-list {
+  padding: 5px;
 }
 
 .todo-list {
@@ -27,14 +45,11 @@ li {
 
 }
 
-.check {
-  text-decoration: line-through;
-}
 
 #todo-input {
   border: none;
   border-bottom: 2px solid black;
-  width: 150%;
+  width: 130%;
 }
 
 .name-label {
@@ -46,7 +61,12 @@ li {
   background-color: transparent;
   border-color: black;
   top: -21px;
-  left: 158%;
+  left: 134%;
+}
+
+.time {
+  border: none;
+  background-color: transparent;
 }
 
 .delete {
@@ -54,7 +74,6 @@ li {
   background-color: transparent;
   border: none;
   border-radius: 50px;
-  /*padding: 10px;*/
 }
 
 .pause {
@@ -63,5 +82,5 @@ margin-left: 20%;
 
 .calendar {
   margin: 0% 5%;
-
+  margin-bottom: 10%;
 }

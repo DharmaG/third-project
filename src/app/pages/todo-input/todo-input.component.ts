@@ -11,6 +11,9 @@ import { CalendarComponent } from '../../pages/calendar/calendar.component';
 import { TodoApiService } from '../../services/todo-api.service';
 import { AuthApiService } from '../../services/auth-api.service';
 
+declare var jquery:any;
+declare var $ :any;
+
 
 @Component({
   selector: 'app-todo-input',
@@ -25,16 +28,20 @@ export class TodoInputComponent implements OnInit {
   today: any;
 
   newTodo: any = {};
+  timerTodo: any = {};
 
 
   ticks = 0;
   counter0: number = 0;
-  minuteCounter: number = 0;
-  hoursCounter: number = 0;
   timer0Id: string;
   timer0button = 'Subscribe';
 
   sub: Subscription;
+
+  show: any[] = [];
+  input: any[] = [];
+
+
 
 
 
@@ -46,7 +53,7 @@ export class TodoInputComponent implements OnInit {
     private date: DatePipe,
     private router: Router
 
-  ) { }
+  ) {}
 
   ngOnInit() {
     // setInterval(function() {
@@ -55,6 +62,7 @@ export class TodoInputComponent implements OnInit {
 
     this.today = Date.now();
 
+    setInterval(() => { this.today = Date.now();}, 1000);
 
 
     this.timer.newTimer('1sec', 1);
@@ -101,23 +109,11 @@ export class TodoInputComponent implements OnInit {
        }
        console.log(this.timer.getSubscription());
 
-       const timer = Observable.timer(1,1000);
-       this.sub = timer.subscribe(
-         t => {
-           this.ticks = t;
-
-           this.counter0 = this.getSeconds(this.ticks);
-           this.minuteCounter = this.getMinutes(this.ticks);
-           this.hoursCounter = this.getHours(this.ticks);
-         }
-       );
 
        }
 
        timer0callback(): void {
        this.counter0++;
-       this.minuteCounter++;
-       this.hoursCounter++;
        }
 
 saveNewTodo() {
@@ -130,6 +126,17 @@ saveNewTodo() {
     }
   );
 }
+
+saveTimerTodo() {
+  this.todo.postTime(this.timerTodo)
+  .subscribe(
+    (timer) => {
+      console.log(timer);
+      this.todos.push(timer);
+    }
+  );
+}
+
 
 deleteClick(deleteTask) {
   // call the API for deletion
@@ -164,26 +171,6 @@ deleteClick(deleteTask) {
 
   }
 
-    startTimer() {
-    }
-
-    getSeconds(ticks: number) {
-      return this.pad(ticks % 60);
-    }
-
-    getMinutes(ticks: number) {
-      return this.pad((Math.floor(ticks / 60)) % 60);
-    }
-
-    getHours(ticks: number) {
-      return this.pad(Math.floor((ticks / 60) / 60));
-    }
-
-    pad(digit: any) {
-      return digit <= 9 ? '0' + digit : digit;
-    }
-
-
 
     checkboxChange(todo) {
       if (todo.isChecked) {
@@ -194,6 +181,21 @@ deleteClick(deleteTask) {
       }
 
     }
+
+
+    timing(index) {
+        if (this.show[index]) {
+          this.show[index] = false;
+        }
+        else {
+          this.show[index] = true;
+        }
+        // console.log($(`${theTodo_id}`));
+      // $(theTodo._id).append('<p> PLSSS WORK </p>');
+          }
+
+
+
 
 
 

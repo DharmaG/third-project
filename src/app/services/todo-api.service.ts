@@ -29,8 +29,17 @@ export class TodoApiService {
       {todoName: theTodo.todo},
       { withCredentials: true }
     );
-
   }
+
+  postTime(theTimer) {
+    return this.http.post(
+      this.baseUrl + '/api/todos',
+      {todoTimer: theTimer.timerHours},
+      { withCredentials: true }
+    );
+  }
+
+
 
   // DELETE /api/phones/ID
   deletePhone(todoId: string) {

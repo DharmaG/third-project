@@ -5,6 +5,7 @@
   <h1> Hello, {{ userInfo.fullName }}! </h1>
 
   <div class="todoInput">
+
     <form (ngSubmit)="saveNewTodo()">
       <label for="todo-input"> What is your plan today ? </label>
       <br><br>
@@ -12,32 +13,43 @@
       [(ngModel)]="newTodo.todo"  />
 
       <button class="glyphicon glyphicon-plus add" > </button>
-
-
-
     </form>
 
   </div>
 
 </div>
 
-<div class="todo-list" >
-  <p> {{ today | date: 'fullDate' }} </p>
 
-  <p> {{ today | date: 'h:mma' }} </p>
+<div class="todo-list" >
+  <p class="today"> {{ today | date: 'fullDate' }} </p>
+
+  <p class="todayTime"> {{ today | date: 'h:mma' }} </p>
 
 
   <ul class="check-list" >
-    <li *ngFor="let oneTodo of todos" [ngClass]="{ done: oneTodo.isChecked }">
-      <h3 > <input type="checkbox"  (click)="checkboxChange(oneTodo)" />
+
+    <li class = "{{oneTodo._id}}" *ngFor="let oneTodo of todos; let i = index" [ngClass]="{ done: oneTodo.isChecked }">
+      <h3> <button class="glyphicon glyphicon-time time" (click)="timing(i)"></button>
+        <input type="checkbox"  (click)="checkboxChange(oneTodo)" />
          {{ oneTodo.todo }}
          <button class="glyphicon glyphicon-trash delete"(click)="deleteClick(oneTodo)">
          </button>
+         <button class="glyphicon glyphicon-play delete"></button>
       </h3>
+
+      <div *ngIf="show[i]">
+
+        <form (ngSubmit)="saveTimerTodo()">
+          <input  type="text"  name="todoTimer" [(ngModel)]="input[i]" />
+        </form>
+
+      </div>
+
+
     </li>
     <div>
       <button (click)="subscribeTimer0()" class="glyphicon glyphicon-pause pause"></button>
-      {{hoursCounter}}:{{minuteCounter}}:{{counter0}}
+      {{counter0}}
 
     </div>
   </ul>
