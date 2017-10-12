@@ -1,11 +1,18 @@
+.background {
+  background-image: url(../../photos/puertorico.jpg);
+  height: 150%;
+}
+
 .userInfo {
 display: inline-block;
-margin: 12% 10%;
+margin: 14% 30%;
 }
 
 
+
 h1 {
-  font-size: 45px;
+  width: 150%;
+  font-size: 85px;
 }
 
 h3 {
@@ -21,35 +28,35 @@ li {
   list-style: none;
 }
 
-.today {
-  display: inline-block;
-  float: left;
-}
-
-.todayTime {
-  float: right;
-}
-
 .check-list {
   padding: 5px;
 }
 
 .todo-list {
-  margin-top: 10%;
-  margin-bottom: 6%;
-  float: right;
-  border: 2px solid black;
+  float: left;
+  color: white;
+  width: 40%;
+  margin: 3% 8%;
   border-radius: 15px;
   padding: 10px;
-  background-color: cream;
+  background-color: rgba(35, 151, 242, 0.8);
+}
 
+
+.today {
+  float: left;
+  margin-top: 5%;
+  font-size: 110px;
+  font-weight: bold;
+  color: rgb(232, 216, 193);
 }
 
 
 #todo-input {
   border: none;
   border-bottom: 2px solid black;
-  width: 130%;
+  width: 120%;
+  background-color: transparent;
 }
 
 .name-label {
@@ -78,9 +85,4 @@ li {
 
 .pause {
 margin-left: 20%;
-}
-
-.calendar {
-  margin: 0% 5%;
-  margin-bottom: 10%;
 }

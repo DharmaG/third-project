@@ -1,4 +1,8 @@
+<div class="background">
+
 <div *ngIf="userInfo" >
+
+  <a  routerLink="/calendar"> Calendar </a>
 
 <div class="userInfo" >
 
@@ -7,7 +11,7 @@
   <div class="todoInput">
 
     <form (ngSubmit)="saveNewTodo()">
-      <label for="todo-input"> What is your plan today ? </label>
+      <label for="todo-input" class="plan"> What is your plan today ? </label>
       <br><br>
       <input  id="todo-input" type="text"  name="todoName"
       [(ngModel)]="newTodo.todo"  />
@@ -20,13 +24,12 @@
 </div>
 
 
-<div class="todo-list" >
-  <p class="today"> {{ today | date: 'fullDate' }} </p>
 
-  <p class="todayTime"> {{ today | date: 'h:mma' }} </p>
+<div class="todo-list" >
 
 
   <ul class="check-list" >
+    <p class="fullDate"> {{ today | date: 'fullDate' }} </p>
 
     <li class = "{{oneTodo._id}}" *ngFor="let oneTodo of todos; let i = index" [ngClass]="{ done: oneTodo.isChecked }">
       <h3> <button class="glyphicon glyphicon-time time" (click)="timing(i)"></button>
@@ -55,14 +58,15 @@
   </ul>
 
 </div>
-<br><br><br><br><br>
 
+<div class="today">
 
-<div class="calendar">
-  <app-calendar></app-calendar>
+  <p> {{ today | date: 'h:mma' }} </p>
 
 </div>
 
 
 
+
+</div>
 </div>
