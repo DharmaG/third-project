@@ -1,13 +1,11 @@
 
-
 h1 {
   font-family: 'Petit Formal Script', cursive;
-  text-align: center;
   margin: 0;
+  font-size: 50px;
+  padding: 3%;
 }
- .homeTitle {
-   padding: 13%;
- }
+
 .homeLinks {
   text-align: center;
 }
@@ -22,6 +20,13 @@ a:hover {
 }
 
 .background {
-  background-image: url(../../photos/solidcream.png);
+  background-image: url(../../photos/planning.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 159%;
+  width: 100%;
   height: 100%;
+}
+
+.signLog {
+  margin: 6% 10%;
 }

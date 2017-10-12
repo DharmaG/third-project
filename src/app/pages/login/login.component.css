@@ -1,9 +1,23 @@
 
 .authentication {
-  border: 2px solid white;
   border-radius: 50px;
   width: 40%;
-  padding: 10%;
+  padding: 12.5%;
   display: inline-block;
   float: right;
+  background-color: rgba(36, 34, 34, 0.9);
+  color: white;
+}
+
+input {
+  border-radius: 50px;
+  color: black;
+}
+
+button {
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 10px;
+  margin-top: 10%;
+  margin-left: 30%;
 }

@@ -5,6 +5,7 @@ import 'rxjs/add/operator/do';
 
 import { SignupInfo } from '../interfaces/signup-info';
 import { LoginInfo } from '../interfaces/login-info';
+import { environment } from '../../environments/environment';
 
 // UNCOMMENT TO DEPLOY ------------------------
 // import { environment } from '../../environments/environment';
@@ -12,7 +13,7 @@ import { LoginInfo } from '../interfaces/login-info';
 @Injectable()
 export class AuthApiService {
 
-  baseUrl: string = 'http://localhost:3000';
+  baseUrl: string = environment.apiUrl;
 
     loginStatusSubject = new BehaviorSubject<any>({ isLoggedIn: false });
     loginStatusNotifier = this.loginStatusSubject.asObservable();

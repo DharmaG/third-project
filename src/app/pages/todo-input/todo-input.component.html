@@ -1,8 +1,8 @@
-<div class="background">
+<div class="background backgroundFront">
 
 <div *ngIf="userInfo" >
 
-  <a  routerLink="/calendar"> Calendar </a>
+  <a class="calendarLink" routerLink="/calendar"> Calendar </a>
 
 <div class="userInfo" >
 
@@ -13,7 +13,7 @@
     <form (ngSubmit)="saveNewTodo()">
       <label for="todo-input" class="plan"> What is your plan today ? </label>
       <br><br>
-      <input  id="todo-input" type="text"  name="todoName"
+      <input class="input"  id="todo-input" type="text"  name="todoName"
       [(ngModel)]="newTodo.todo"  />
 
       <button class="glyphicon glyphicon-plus add" > </button>

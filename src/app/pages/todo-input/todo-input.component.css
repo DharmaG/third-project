@@ -1,18 +1,29 @@
 .background {
   background-image: url(../../photos/puertorico.jpg);
   height: 150%;
+  color: white;
 }
+
 
 .userInfo {
 display: inline-block;
 margin: 14% 30%;
 }
 
-
+.calendarLink {
+  margin: 2%;
+  font-size: 20px;
+  color: white;
+}
 
 h1 {
   width: 150%;
   font-size: 85px;
+}
+
+.plan{
+  font-size: 20px;
+  margin-left: 30%;
 }
 
 h3 {
@@ -39,22 +50,20 @@ li {
   margin: 3% 8%;
   border-radius: 15px;
   padding: 10px;
-  background-color: rgba(35, 151, 242, 0.8);
+  background-color: rgba(36, 34, 34, 0.8);
 }
 
 
 .today {
   float: left;
-  margin-top: 5%;
+  margin-top: 4%;
   font-size: 110px;
-  font-weight: bold;
-  color: rgb(232, 216, 193);
 }
 
 
 #todo-input {
   border: none;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid white;
   width: 120%;
   background-color: transparent;
 }
@@ -66,9 +75,15 @@ li {
 .add {
   border-radius: 80px;
   background-color: transparent;
-  border-color: black;
+  color: rgba(36, 34, 34, 0.8);
+  border-color: rgba(36, 34, 34, 0.8);
   top: -21px;
   left: 134%;
+}
+
+.fullDate {
+  font-size: 20px;
+  display: inline-block;
 }
 
 .time {
@@ -85,4 +100,7 @@ li {
 
 .pause {
 margin-left: 20%;
+background-color: transparent;
+border: 1px solid white;
+border-radius: 30px;
 }
