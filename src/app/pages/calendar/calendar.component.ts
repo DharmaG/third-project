@@ -84,38 +84,46 @@ export class CalendarComponent implements OnInit {
   events: CalendarEvent[] = [
     {
       start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
+      // end: startOfDay(new Date()),
+      title: 'Take out the trash',
       color: colors.red,
       actions: this.actions,
       draggable: true
     },
     {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow,
+      start: subDays(startOfDay(new Date()), 1),
+      // end: startOfDay(new Date()),
+      title: 'Wash the car',
+      color: colors.red,
       actions: this.actions,
       draggable: true
     },
     {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue,
-      draggable: true
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: new Date(),
-      title: 'A draggable and resizable event',
+      start: subDays(startOfDay(new Date()), 1),
+      title: 'Groceries',
       color: colors.yellow,
       actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
       draggable: true
-    }
+    },
+    // {
+    //   start: subDays(endOfMonth(new Date()), 3),
+    //   end: addDays(endOfMonth(new Date()), 3),
+    //   title: 'A long event that spans 2 months',
+    //   color: colors.blue,
+    //   draggable: true
+    // },
+    // {
+    //   start: addHours(startOfDay(new Date()), 2),
+    //   end: new Date(),
+    //   title: 'Buy Milan a costume',
+    //   color: colors.yellow,
+    //   actions: this.actions,
+    //   resizable: {
+    //     beforeStart: true,
+    //     afterEnd: true
+    //   },
+    //   draggable: true
+    // }
   ];
 
   activeDayIsOpen: boolean = true;
@@ -187,7 +195,6 @@ export class CalendarComponent implements OnInit {
   ngOnInit() {
 
     this.addTodo();
-
 
   }
 

@@ -1,9 +1,10 @@
 
 h1 {
   font-family: 'Petit Formal Script', cursive;
-  margin: 0;
-  font-size: 50px;
+  font-size: 70px;
   padding: 3%;
+  margin: 0px;
+  text-align: center;
 }
 
 .homeLinks {
@@ -20,7 +21,7 @@ a:hover {
 }
 
 .background {
-  background-image: url(../../photos/planning.jpg);
+  background-image: url(../../photos/puertorico.jpg);
   background-repeat: no-repeat;
   background-size: 100% 159%;
   width: 100%;
