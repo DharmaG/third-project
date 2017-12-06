@@ -1,3 +1,12 @@
+.title {
+    font-family: 'Petit Formal Script', cursive;
+    font-size: 30px;
+}
+
+.right-nav {
+  float: right;
+}
+
 
 h1 {
   font-family: 'Petit Formal Script', cursive;
