@@ -31,3 +31,13 @@ a:hover {
 .signLog {
   margin: 6% 10%;
 }
+
+#about {
+  margin-top: 10px;
+  background-color: black;
+}
+
+p {
+  font-size: 30px;
+  padding-bottom: 80px;
+}
